@@ -1,0 +1,746 @@
+@mixin size($w:100%, $h:100%){
+width: $w;
+height: $h;
+}
+@mixin position($t:null ,$l:null, $p:absolute, $r:null ,$b:null){
+position: $p;
+top: $t;
+left: $l;
+right: $r;
+bottom: $b;
+}
+@mixin flex ($j:space-between, $a:center, $d:null){
+display: flex;
+justify-content: $j;
+align-items : $a;
+flex-direction: $d;
+}
+@function rem($s){
+  @return $s/16 +rem;
+}
+@function em($s, $b){
+  @return $s/$b +em;
+}
+@function vw($s){
+  @return $s/19.2 +vw;
+}
+@function vh($s){
+  @return $s/10.24 +vh;
+}
+@font-face {
+  font-family: 'TmoneyRoundWindExtraBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'TmoneyRoundWindRegular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindRegular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@keyframes fadein{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+@keyframes rotate{
+  from{
+    transform: rotate(0);
+    opacity: 1;
+  }
+  to{
+    transform: rotate(180deg);
+    opacity: 0;
+  }
+}
+@keyframes tit1{
+  0%{
+    transform: translateX(0);
+  }
+  50%{
+    transform: translateX(100%);
+  }
+  100%{
+    transform: translateX(100%) scale(1.6);
+  }
+}
+@keyframes tit2{
+  from{
+    transform: scale(1);
+  }
+  to{
+    transform: scale(1.6);
+  }
+}
+@keyframes tit3{
+  0%{
+    transform: translateX(0);
+  }
+  50%{
+    transform: translateX(-100%);
+  }
+  100%{
+    transform: translateX(-100%) scale(1.6);
+  }
+}
+@keyframes rotate_scale{
+  from{
+    opacity: 0;
+    transform: scale(0) rotate(360deg) translateX(-50%);
+  }
+  to{
+    opacity: 1;
+    transform: scale(1) rotate(0deg) translateX(-50%);
+  }
+}
+@keyframes foldertext{
+  0%{
+    color: #607d8b;
+  }
+ 50%{
+    color: #3366ff;
+  }
+  100%{
+    color: #607d8b;
+  }
+}
+@keyframes moveright{
+  from{
+    transform: translateX(-500%);
+  }
+  to{
+    transform: translateX(0);
+  }
+}
+@keyframes moveleft{
+  from{
+    transform: translateX(300%);
+  }
+  to{
+    transform: translateX(0);
+  }
+}
+body{
+  background-color: #3366ff;
+  font-family: 'TmoneyRoundWindRegular';
+  color: #fff;
+}
+nav{
+  @include size(10vw, 20vw);
+  @include position(10%, -10vw, $p:fixed);
+  border-radius: 0 20px 20px 0;
+  box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+  background: #fff;
+  z-index: 10;
+  transition: 0.5s;
+  &:hover{
+    transform: rotate(10deg);
+  }
+  &.on{
+    left:0;
+    &:hover{
+      transform: rotate(0);
+    }
+  }
+  .nav_btn{
+    @include position(10%, $r:-4vw);
+    @include size(4vw, 5vw);
+    @include flex(center, center, column);
+    border-radius: 0 0.8vw 0.8vw 0 ;
+    background: #fff;
+    cursor: pointer;
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+    span{
+      display: block;
+      @include size(60%, 10%);
+      background: #222;
+      margin-bottom: 10%;
+      &:nth-child(3){
+        margin-bottom: 0;
+      }
+    }
+  }
+  ul{
+    padding: 2vw;
+    font-family: 'TmoneyRoundWindExtraBold';
+    color: #222;
+    li{
+      font-size: 1.5vw;
+      margin-bottom: 1vw;
+      &:hover{
+        color: #3366ff;
+      }
+    }
+  }
+}
+aside{
+  @include size(30vw, 70vh);
+  @include position(10%, $r:-30vw, $p:fixed);
+  border-radius: 20px 0 0 20px;
+  box-shadow: -1px 2px 3px rgba(0,0,0,0.2);
+  background: #fff;
+  z-index: 10;
+  transition: 0.5s;
+  &.on{
+    right: 0;
+    &:hover{
+      transform: rotate(0);
+    }
+  }
+  &:hover{
+    transform: rotate(-10deg)
+  }
+  .aside_btn{
+    @include position(10%, -6vw);
+    @include size(6vw, 10vw);
+    @include flex(center, center);
+    border-radius: 0.8vw 0 0 0.8vw;
+    background: #fff;
+    box-shadow: -1px 2px 3px rgba(0,0,0,0.2);
+    img{
+      @include size(100%, auto);
+      pointer-events: none;
+    }
+  }
+  .form_container{
+    @include size();
+    @include flex(center, center, column);
+    color: #222;
+    text-align: center;
+    font-size: 1.4vw;
+    h2{
+      font-family: 'TmoneyRoundWindExtraBold';
+      margin-bottom: 8%;
+      color: #3366ff;
+    }
+    form{
+      @include size(auto,70%);
+      input{
+        @include size(80%, 10%);
+        font-size: 1.2vw;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 5%;
+        padding-left: 3%
+      }
+      textarea{
+        @include size(80%, 40%);
+        font-size: 1.2vw;
+        border: 1px solid #ccc;
+        margin-bottom: 5%;
+        border-radius: 10px;
+        padding: 3% 3%;
+      }
+      button{
+        color: #fff;
+        background: #3366ff;;
+        padding: 1vw 2vw;
+        border-radius: 10px;
+        font-size: 1.4vw;
+        font-family: 'TmoneyRoundWindExtraBold';
+        cursor: pointer;
+      }
+    }
+  }
+}
+#wrap{
+  width: 100vw;
+  #visual{
+    @include size(100vw, 100vh);
+    @include flex(center, center);
+    font-size: 4vw;
+  }
+  b{
+      font-family: 'TmoneyRoundWindExtraBold';
+      font-size: 1.2em;
+  }
+  #about{
+    background: #fff;
+    color: #3366ff;
+    &.on{
+      span:nth-child(1){
+        animation: tit1 0.5s 0.5s ease-in-out forwards;
+      }
+      span:nth-child(2){
+        animation: fadein reverse 0.5s ease-in-out forwards;
+      }
+      span:nth-child(3){
+        animation: fadein reverse 0.5s ease-in-out forwards;
+      }
+    }
+  }
+  #about_1{
+    background: #3366ff;
+  }
+  #about_2{
+      background: #651fff;
+      &.on{
+        @for $i from 1 to 4 {
+          li:nth-child(#{$i}){
+            .career_img{
+              animation: moveright 0.5s #{$i/8}s ease-in-out forwards; 
+            }
+            p{
+              animation: moveleft 0.5s #{$i/8}s ease-in-out forwards;
+            }
+          }
+        }
+      }
+      ul{
+        position: relative;
+        z-index: 2;
+        li{
+          @include flex(center, center);
+          margin-bottom: 8vw;
+          &:nth-child(1){
+            .career_img{
+              padding-top: 1vw;
+            }
+          }
+          &:last-child{
+            margin-bottom: 0;
+          }
+          .career_img{
+            @include size(12vw, 8vw);
+            margin-right: 4vw;
+            transform: translateX(-500%);
+            img{
+              @include size(100%, auto);
+            }
+          }
+          p{
+            width: 50%;
+            transform: translateX(300%);
+            b{
+              display: block;
+              margin-bottom: 1vw;
+            }
+          }
+        }
+      }
+  }
+  #about_3{
+      color: #222;
+      background: #fff;
+      .bg{
+        background: #fff;
+      }
+  }
+  .sub{
+      @include size(100vw, 100vh);
+      @include flex(center);
+      overflow: hidden;
+      .bg{
+        position: absolute;
+        @include size(40vw, 40vw);
+        border-radius: 50%;
+      }
+      .text{
+        text-align: center;
+        @include flex(center, center, column);
+        position: relative;
+        z-index: 2;
+        h3{
+          font-size: 4vw;
+          margin-bottom: 2.4vw;
+        }
+        p{
+          font-size: 5vw;
+        }
+      }
+  }
+  #works{
+    @include position(0, 0, relative);
+    transition: 1s;
+    background: #222;
+    display: flex;
+    width: 400vw;
+    &.on{
+      .tit{
+        span:nth-child(1){
+          animation: fadein reverse 0.5s ease-in-out forwards;
+        }
+        span:nth-child(2){
+          animation: tit2 0.5s 0.5s ease-in-out forwards;
+        }
+        span:nth-child(3){
+          animation: fadein reverse 0.5s ease-in-out forwards;
+        }
+      }
+    } 
+    .tit{
+      background: #222;
+      color:#00ff33;
+    }
+    > div{
+      @include size(100vw, 100vh);
+    }
+    .works{
+      @include flex;
+      padding: 0 vw(170);
+      .leftside{
+        position: relative;
+        @include size(70%);
+        p{
+          margin-top: 9vw;
+          font-size: 16vw;
+          color: #ccc;
+        }
+        img{
+          @include size(40vw, 34vw);
+          @include position(20vw, 16%);
+        }
+      }
+      .rightside{
+        @include size(30%);
+        h4{
+          font-family: 'TmoneyRoundWindExtraBold';
+          color:#00ff33;
+          margin-top: 18vw;
+          font-size: 7vw;
+          margin-bottom: 1vw;
+        }
+        p{
+          margin-bottom: 2vw;
+          &:nth-child(4){
+            margin-bottom: 5vw;
+          }
+        }
+        span{
+          font-family: 'TmoneyRoundWindExtraBold';
+          color: #222;
+          padding: 1vw 0.8vw;
+          background: #00ff33;
+          margin-right: 1vw;
+        }
+      }
+    }
+  }
+  #skills{
+    overflow: hidden;
+    position: relative;
+    @include size(100vw,100vh);
+    &.on{
+      .tit{
+        span:nth-child(1){
+          animation: fadein reverse 0.5s ease-in-out forwards;
+        }
+        span:nth-child(2){
+          animation: fadein reverse 0.5s ease-in-out forwards;
+        }
+        span:nth-child(3){
+          animation: tit3 0.5s 0.5s ease-in-out forwards;
+        }
+        .skills_btn{
+          animation: rotate_scale 0.5s 1s ease-in-out forwards;
+        }
+      }
+    }
+    .tit{
+      background: #fff;
+      color: #ad0000;
+    }
+    .skills_btn{
+      @include position($b:20%, $l:50%);
+      text-align: center;
+      opacity: 0;
+      img{
+        @include size(8vw, 8vw);
+      }
+      p{
+        margin-top: 1vw;
+        animation: foldertext 1.5s infinite;
+      }
+    }
+    .folder{
+      @include position(150%, 50%);
+      @include size(80%, 80%);
+      transform: translate(-50%, -50%);
+      transition: 0.5s ease-in-out;
+      background: #fffffa;
+      border: 1px solid #aaa;
+      border-radius: 20px;
+      box-shadow: 3px 3px 3px rgba(85, 74, 74, 0.5);
+      z-index: 5;
+      &.on{
+        top:50%;
+      }
+      &.full{
+        @include size();
+        border-radius: 0;
+        .status_bar{
+          border-radius: 0;
+        }
+      }
+      .status_bar{
+        @include size(100%, 6%);
+        border-radius: 20px 20px 0 0;
+        background: #eceff1;
+        display: flex;
+        align-items: center;
+        a{
+          position: relative;
+          display: block;
+          @include size(18px , 18px);
+          background: #000;
+          border: 1px solid #ccc;
+          margin-left: 1vw;
+          border-radius: 50%;
+          &:after{
+            content: "";
+            display: block;
+            @include position(50%, 50%);
+            transform: translate(-50%, -50%);
+            @include size(50%, 50%);
+          }
+          &:hover{
+            @for $i from 0 to 3 {
+              &:nth-child(#{$i+1}){
+                &:after{
+                  background: url(../images/status#{$i}.png) center center no-repeat;
+                  background-size: contain;
+                }
+              }
+            }
+          }
+          &:nth-child(1){
+            background: rgb(253,70,70);
+            margin-left: 2vw;
+          }
+          &:nth-child(2){
+            background: rgb(254,176,36);
+          }
+          &:nth-child(3){
+            background: rgb(41,194,50);
+          }
+        }
+      }
+      &.detail{
+        .depth2{
+          display: block;
+        }
+        .depth1{
+          grid-template-columns: 30%;
+          justify-items: flex-start;
+          margin: 0;
+          row-gap: 0.3vw;
+          padding: 3vw 5vw;
+          border-right: 2px solid #ccc;
+          @include size(30%, 88%);
+          >li{
+            flex-direction: row;
+            >div{
+              @include size(3vw, 3vw);
+              margin-right: 1vw;
+            }
+            p{
+              font-size: 1.4vw;
+            }
+          }
+        }
+      }
+      .depth1{
+        margin: 6vw auto;
+        width: 80%;
+        color: #000;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        align-items: center;
+        justify-items: center;
+        row-gap: 5vw;
+        >li{
+          &[data-num]{
+            cursor: pointer
+          }
+          @include flex(center, center, column);
+          @for $i from 0 to 8 {
+            &:nth-child(#{$i+1}){
+              >div:after{
+                background: url(../images/skills#{$i}.png) center center no-repeat;
+                background-size: contain;
+              }
+            }
+          }
+          >div{
+            position: relative;
+            @include size(8vw, 8vw);
+            margin-bottom: 1vw;
+            &:after{
+              content: "";
+              display: block;
+              @include position(50%, 50%);
+              @include size(50%,50%);
+              transform: translate(-50%,-30%);
+            }
+            img{
+              @include size();
+            }
+          }
+          p{
+            font-size: 2vw;
+          }
+        }  
+      }
+      .depth2{
+        display: none;
+        @include position(12%, 35%);
+        @include size(60%, 90%);
+        color: #222;
+        &.full{
+          @include size(100%,94%);
+          @include position(6%, 0);
+          ul{
+            visibility: hidden;
+          }
+          .big_img{
+            @include position(0, 0);
+            @include size();
+            display: block;
+            span{
+              @include position(45%);
+              @include size(4%, 6%);
+              display: block;
+              background: #ccc;
+              transform: translateY(-50%);
+              &:nth-child(1){
+                left:2%;
+              }
+              &:nth-child(2){
+                right:2%;
+              }
+              &:nth-child(3){
+                @include position(3%,$r:2%);
+              }
+            }
+          }
+        }
+        .big_img{
+          display: none;
+          @include position(34%, 0);
+          @include size(100%, 55%);
+          box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+          background-color: #fff;
+          background-size: contain;
+          background-position: center center;
+          background-repeat: no-repeat;  
+          transition: 0.2s ease-in-out;
+        }
+        ul{
+          @include position(0, 0);
+          @include size();
+          display: none;
+          grid-template-columns: repeat(5, 1fr);
+          align-items: flex-start;
+          justify-items: center;
+          text-align: center;
+          row-gap: 1vw;
+          a{
+            @include flex(center, center, column);
+          }
+          &.on{
+            display: grid;
+          }
+          &:nth-child(1){
+            @for $i from 0 to 5 {
+              li:nth-child(#{$i+1}){
+                div:after{
+                  background: url(../images/css#{$i}.jpg) center center no-repeat;
+                  background-size: contain;
+                }
+              }
+            }
+          }
+          &:nth-child(2){
+            @for $i from 0 to 4 {
+              li:nth-child(#{$i+1}){
+                div:after{
+                  background: url(../images/js#{$i}.jpg) center center no-repeat;
+                  background-size: contain;
+                }
+              }
+            }
+          }
+          &:nth-child(3){
+            @for $i from 0 to 4 {
+              li:nth-child(#{$i+1}){
+                div:after{
+                  background: url(../images/jquery#{$i}.jpg) center center no-repeat;
+                  background-size: contain;
+                }
+              }
+            }
+          }
+          &:nth-child(4){
+            cursor: pointer;
+            grid-template-rows: repeat(2, 18%);
+            @for $i from 0 to 10 {
+              li:nth-child(#{$i+1}){
+                div:after{
+                  background: url(../images/ai#{$i}.jpg) center center no-repeat;
+                  background-size: contain;
+                }
+              }
+            }
+          }
+          div{
+            position: relative;
+            @include size(60%, 60%);
+            margin-bottom: 1vw;
+            &:after{
+              content: "";
+              display: block;
+              @include position(50%, 50%);
+              @include size(60%, 50%);
+              transform: translate(-50%,-30%);
+            }
+            img{
+              @include size();
+            }
+          }
+          p{
+            font-size: 1.4vw;
+          }
+        }
+      }
+    }
+  }
+  #thanks{
+    font-family: 'TmoneyRoundWindExtraBold';
+    @include size(100vw, 100vh);
+    @include flex(center, center);
+    &.on{
+      h2{
+        animation: rotate reverse 0.5s 0.5s ease-in-out forwards;
+      }
+    }
+    h2{
+      font-size: 10vw;
+      opacity: 0;
+    }
+  }
+  .tit{
+    font-family: 'TmoneyRoundWindExtraBold';
+    @include size(100vw, 100vh);
+    @include flex;
+    span{
+      position: relative;
+      font-size: 6vw;
+      text-align: center;
+      width: 33%;
+      @for $i from 1 to 4 {
+        &:nth-child(#{$i}){
+          &:before{
+            @include position(-2vw, 4vw);
+            content: "0#{$i}";
+            display: block;
+            font-size: 2vw;
+            color: #ccc;
+          }
+        }
+      }
+    }
+  }
+}
