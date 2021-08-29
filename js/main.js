@@ -165,3 +165,8 @@ function imgChanger(){
   imgUrl = `images/ai${imgNum}.jpg`
   $('.big_img').css('background-image',`url(${imgUrl})`)
 }
+
+$('.rightside span').eq(0).on('click', function(e){
+  e.preventDefault()
+  alert('코드 리뷰 페이지 준비중입니다.')
+})
