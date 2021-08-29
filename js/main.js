@@ -135,7 +135,7 @@ $('.depth2 .ai li').on('click',function(e){
   $('.big_img').css('background-image',`url(${imgUrl})`);
   setTimeout(()=>{
     $('.big_img').css('display','block');
-  },100)
+  },300)
 })
 
 $('.big_img span').on('click',function(){
