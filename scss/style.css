@@ -467,16 +467,16 @@ aside .form_container form button {
 }
 
 #wrap #about.on span:nth-child(1) {
-  -webkit-animation: tit1 0.5s 0.5s ease-in-out forwards;
-          animation: tit1 0.5s 0.5s ease-in-out forwards;
+  -webkit-animation: tit1 1s 1s ease-in-out forwards;
+          animation: tit1 1s 1s ease-in-out forwards;
 }
 
 #wrap #about.on span:nth-child(2) {
-  animation: fadein reverse 0.5s ease-in-out forwards;
+  animation: fadein reverse 1s ease-in-out forwards;
 }
 
 #wrap #about.on span:nth-child(3) {
-  animation: fadein reverse 0.5s ease-in-out forwards;
+  animation: fadein reverse 1s ease-in-out forwards;
 }
 
 #wrap #about_1 {
@@ -488,33 +488,33 @@ aside .form_container form button {
 }
 
 #wrap #about_2.on li:nth-child(1) .career_img {
-  -webkit-animation: moveright 0.5s 0.125s ease-in-out forwards;
-          animation: moveright 0.5s 0.125s ease-in-out forwards;
+  -webkit-animation: moveright 1s 0.25s ease-in-out forwards;
+          animation: moveright 1s 0.25s ease-in-out forwards;
 }
 
 #wrap #about_2.on li:nth-child(1) p {
-  -webkit-animation: moveleft 0.5s 0.125s ease-in-out forwards;
-          animation: moveleft 0.5s 0.125s ease-in-out forwards;
+  -webkit-animation: moveleft 1s 0.25s ease-in-out forwards;
+          animation: moveleft 1s 0.25s ease-in-out forwards;
 }
 
 #wrap #about_2.on li:nth-child(2) .career_img {
-  -webkit-animation: moveright 0.5s 0.25s ease-in-out forwards;
-          animation: moveright 0.5s 0.25s ease-in-out forwards;
+  -webkit-animation: moveright 1s 0.5s ease-in-out forwards;
+          animation: moveright 1s 0.5s ease-in-out forwards;
 }
 
 #wrap #about_2.on li:nth-child(2) p {
-  -webkit-animation: moveleft 0.5s 0.25s ease-in-out forwards;
-          animation: moveleft 0.5s 0.25s ease-in-out forwards;
+  -webkit-animation: moveleft 1s 0.5s ease-in-out forwards;
+          animation: moveleft 1s 0.5s ease-in-out forwards;
 }
 
 #wrap #about_2.on li:nth-child(3) .career_img {
-  -webkit-animation: moveright 0.5s 0.375s ease-in-out forwards;
-          animation: moveright 0.5s 0.375s ease-in-out forwards;
+  -webkit-animation: moveright 1s 0.75s ease-in-out forwards;
+          animation: moveright 1s 0.75s ease-in-out forwards;
 }
 
 #wrap #about_2.on li:nth-child(3) p {
-  -webkit-animation: moveleft 0.5s 0.375s ease-in-out forwards;
-          animation: moveleft 0.5s 0.375s ease-in-out forwards;
+  -webkit-animation: moveleft 1s 0.75s ease-in-out forwards;
+          animation: moveleft 1s 0.75s ease-in-out forwards;
 }
 
 #wrap #about_2 ul {
@@ -640,16 +640,16 @@ aside .form_container form button {
 }
 
 #wrap #works.on .tit span:nth-child(1) {
-  animation: fadein reverse 0.5s ease-in-out forwards;
+  animation: fadein reverse 1s ease-in-out forwards;
 }
 
 #wrap #works.on .tit span:nth-child(2) {
-  -webkit-animation: tit2 0.5s 0.5s ease-in-out forwards;
-          animation: tit2 0.5s 0.5s ease-in-out forwards;
+  -webkit-animation: tit2 1s 1s ease-in-out forwards;
+          animation: tit2 1s 1s ease-in-out forwards;
 }
 
 #wrap #works.on .tit span:nth-child(3) {
-  animation: fadein reverse 0.5s ease-in-out forwards;
+  animation: fadein reverse 1s ease-in-out forwards;
 }
 
 #wrap #works .tit {
@@ -687,12 +687,29 @@ aside .form_container form button {
   color: #ccc;
 }
 
-#wrap #works .works .leftside img {
+#wrap #works .works .leftside .work_img {
   width: 40vw;
   height: 34vw;
   position: absolute;
   top: 20vw;
   left: 16%;
+}
+
+#wrap #works .works .leftside .work_img img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+#wrap #works .works .leftside .work_img video {
+  position: absolute;
+  top: 5%;
+  left: 8%;
+  width: 86%;
+  height: 62%;
+  -o-object-fit: fill;
+     object-fit: fill;
 }
 
 #wrap #works .works .rightside {
@@ -732,21 +749,21 @@ aside .form_container form button {
 }
 
 #wrap #skills.on .tit span:nth-child(1) {
-  animation: fadein reverse 0.5s ease-in-out forwards;
+  animation: fadein reverse 1s ease-in-out forwards;
 }
 
 #wrap #skills.on .tit span:nth-child(2) {
-  animation: fadein reverse 0.5s ease-in-out forwards;
+  animation: fadein reverse 1s ease-in-out forwards;
 }
 
 #wrap #skills.on .tit span:nth-child(3) {
-  -webkit-animation: tit3 0.5s 0.5s ease-in-out forwards;
-          animation: tit3 0.5s 0.5s ease-in-out forwards;
+  -webkit-animation: tit3 1s 1s ease-in-out forwards;
+          animation: tit3 1s 1s ease-in-out forwards;
 }
 
 #wrap #skills.on .tit .skills_btn {
-  -webkit-animation: rotate_scale 0.5s 1s ease-in-out forwards;
-          animation: rotate_scale 0.5s 1s ease-in-out forwards;
+  -webkit-animation: rotate_scale 1s 1s ease-in-out forwards;
+          animation: rotate_scale 1s 1s ease-in-out forwards;
 }
 
 #wrap #skills .tit {
@@ -1041,24 +1058,32 @@ aside .form_container form button {
   top: 45%;
   width: 4%;
   height: 6%;
+  cursor: pointer;
   display: block;
-  background: #ccc;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }
 
 #wrap #skills .folder .depth2.full .big_img span:nth-child(1) {
   left: 2%;
+  background: url(../images/arrow.jpg) center center no-repeat;
+  background-size: cover;
 }
 
 #wrap #skills .folder .depth2.full .big_img span:nth-child(2) {
   right: 2%;
+  background: url(../images/arrow.jpg) center center no-repeat;
+  background-size: cover;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 #wrap #skills .folder .depth2.full .big_img span:nth-child(3) {
   position: absolute;
   top: 3%;
   right: 2%;
+  background: url(../images/close.png) center center no-repeat;
+  background-size: cover;
 }
 
 #wrap #skills .folder .depth2 .big_img {

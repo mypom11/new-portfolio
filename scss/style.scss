@@ -262,13 +262,13 @@ aside{
     color: #3366ff;
     &.on{
       span:nth-child(1){
-        animation: tit1 0.5s 0.5s ease-in-out forwards;
+        animation: tit1 1s 1s ease-in-out forwards;
       }
       span:nth-child(2){
-        animation: fadein reverse 0.5s ease-in-out forwards;
+        animation: fadein reverse 1s ease-in-out forwards;
       }
       span:nth-child(3){
-        animation: fadein reverse 0.5s ease-in-out forwards;
+        animation: fadein reverse 1s ease-in-out forwards;
       }
     }
   }
@@ -281,10 +281,10 @@ aside{
         @for $i from 1 to 4 {
           li:nth-child(#{$i}){
             .career_img{
-              animation: moveright 0.5s #{$i/8}s ease-in-out forwards; 
+              animation: moveright 1s #{$i/4}s ease-in-out forwards; 
             }
             p{
-              animation: moveleft 0.5s #{$i/8}s ease-in-out forwards;
+              animation: moveleft 1s #{$i/4}s ease-in-out forwards;
             }
           }
         }
@@ -361,13 +361,13 @@ aside{
     &.on{
       .tit{
         span:nth-child(1){
-          animation: fadein reverse 0.5s ease-in-out forwards;
+          animation: fadein reverse 1s ease-in-out forwards;
         }
         span:nth-child(2){
-          animation: tit2 0.5s 0.5s ease-in-out forwards;
+          animation: tit2 1s 1s ease-in-out forwards;
         }
         span:nth-child(3){
-          animation: fadein reverse 0.5s ease-in-out forwards;
+          animation: fadein reverse 1s ease-in-out forwards;
         }
       }
     } 
@@ -389,9 +389,19 @@ aside{
           font-size: 16vw;
           color: #ccc;
         }
-        img{
+        .work_img{
           @include size(40vw, 34vw);
           @include position(20vw, 16%);
+          img{
+            position: relative;
+            @include size();
+            z-index: 2;
+          }
+          video{
+            @include position(5%, 8%);
+            @include size(86%, 62%);
+            object-fit: fill;
+          }
         }
       }
       .rightside{
@@ -426,16 +436,16 @@ aside{
     &.on{
       .tit{
         span:nth-child(1){
-          animation: fadein reverse 0.5s ease-in-out forwards;
+          animation: fadein reverse 1s ease-in-out forwards;
         }
         span:nth-child(2){
-          animation: fadein reverse 0.5s ease-in-out forwards;
+          animation: fadein reverse 1s ease-in-out forwards;
         }
         span:nth-child(3){
-          animation: tit3 0.5s 0.5s ease-in-out forwards;
+          animation: tit3 1s 1s ease-in-out forwards;
         }
         .skills_btn{
-          animation: rotate_scale 0.5s 1s ease-in-out forwards;
+          animation: rotate_scale 1s 1s ease-in-out forwards;
         }
       }
     }
@@ -602,17 +612,24 @@ aside{
             span{
               @include position(45%);
               @include size(4%, 6%);
+              cursor: pointer;
               display: block;
-              background: #ccc;
               transform: translateY(-50%);
               &:nth-child(1){
                 left:2%;
+                background: url(../images/arrow.jpg) center center no-repeat;
+                background-size: cover;
               }
               &:nth-child(2){
                 right:2%;
+                background: url(../images/arrow.jpg) center center no-repeat;
+                background-size: cover;
+                transform: rotate(180deg);
               }
               &:nth-child(3){
                 @include position(3%,$r:2%);
+                background: url(../images/close.png) center center no-repeat;
+                background-size: cover;
               }
             }
           }
