@@ -90,22 +90,22 @@ flex-direction: $d;
 @keyframes rotate_scale{
   from{
     opacity: 0;
-    transform: scale(0) rotate(360deg) translateX(-50%);
+    transform: scale(0) rotate(180deg) translate(-50%, -50%);
   }
   to{
     opacity: 1;
-    transform: scale(1) rotate(0deg) translateX(-50%);
+    transform: scale(1) rotate(0deg) translate(-50%, -50%);
   }
 }
 @keyframes foldertext{
   0%{
-    color: #607d8b;
+    color: #fff;
   }
  50%{
-    color: #3366ff;
+    color: #651fff;
   }
   100%{
-    color: #607d8b;
+    color: #fff;
   }
 }
 @keyframes moveright{
@@ -448,25 +448,36 @@ aside{
         span:nth-child(3){
           animation: tit3 1s 1s ease-in-out forwards;
         }
-        .skills_btn{
-          animation: rotate_scale 1s 1s ease-in-out forwards;
-        }
       }
     }
     .tit{
       background: #fff;
       color: #ad0000;
     }
+  }
+  #skills_1{
+    position: relative;
+    @include size();
+    @include flex(center,center);
+    overflow: hidden;
+    background: #651fff;
+    &.on{
+      .skills_btn{
+        animation: rotate_scale 0.5s ease-in-out forwards;
+      }
+    }
     .skills_btn{
-      @include position($b:20%, $l:50%);
+      @include position(50%, 50%);
+      transform: translate(-50%,-50%);
       text-align: center;
-      opacity: 0;
+      opacity: 1;
       img{
-        @include size(8vw, 8vw);
+        @include size(40%, 40%);
       }
       p{
+        font-size: 2vw;
         margin-top: 1vw;
-        animation: foldertext 1.5s infinite;
+        animation: foldertext 2s infinite;
       }
     }
     .folder{
@@ -567,7 +578,12 @@ aside{
         row-gap: 5vw;
         >li{
           &[data-num]{
-            cursor: pointer
+            cursor: pointer;
+            &:hover{
+              div{
+                transform:rotate(10deg);
+              }
+            }
           }
           @include flex(center, center, column);
           @for $i from 0 to 8 {
@@ -579,6 +595,7 @@ aside{
             }
           }
           >div{
+            transition: 0.2s;
             position: relative;
             @include size(8vw, 8vw);
             margin-bottom: 1vw;
@@ -706,23 +723,30 @@ aside{
               }
             }
           }
-          div{
-            position: relative;
-            @include size(60%, 60%);
-            margin-bottom: 1vw;
-            &:after{
-              content: "";
-              display: block;
-              @include position(50%, 50%);
-              @include size(60%, 50%);
-              transform: translate(-50%,-30%);
+          li{
+            &:hover{
+              div{
+                box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+              }
             }
-            img{
-              @include size();
+            div{
+              position: relative;
+              @include size(60%, 60%);
+              margin-bottom: 1vw;
+              &:after{
+                content: "";
+                display: block;
+                @include position(50%, 50%);
+                @include size(60%, 50%);
+                transform: translate(-50%,-30%);
+              }
+              img{
+                @include size();
+              }
             }
-          }
-          p{
-            font-size: 1.4vw;
+            p{
+              font-size: 1.4vw;
+            }
           }
         }
       }

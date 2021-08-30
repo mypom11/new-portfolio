@@ -141,50 +141,50 @@
 @-webkit-keyframes rotate_scale {
   from {
     opacity: 0;
-    -webkit-transform: scale(0) rotate(360deg) translateX(-50%);
-            transform: scale(0) rotate(360deg) translateX(-50%);
+    -webkit-transform: scale(0) rotate(180deg) translate(-50%, -50%);
+            transform: scale(0) rotate(180deg) translate(-50%, -50%);
   }
   to {
     opacity: 1;
-    -webkit-transform: scale(1) rotate(0deg) translateX(-50%);
-            transform: scale(1) rotate(0deg) translateX(-50%);
+    -webkit-transform: scale(1) rotate(0deg) translate(-50%, -50%);
+            transform: scale(1) rotate(0deg) translate(-50%, -50%);
   }
 }
 
 @keyframes rotate_scale {
   from {
     opacity: 0;
-    -webkit-transform: scale(0) rotate(360deg) translateX(-50%);
-            transform: scale(0) rotate(360deg) translateX(-50%);
+    -webkit-transform: scale(0) rotate(180deg) translate(-50%, -50%);
+            transform: scale(0) rotate(180deg) translate(-50%, -50%);
   }
   to {
     opacity: 1;
-    -webkit-transform: scale(1) rotate(0deg) translateX(-50%);
-            transform: scale(1) rotate(0deg) translateX(-50%);
+    -webkit-transform: scale(1) rotate(0deg) translate(-50%, -50%);
+            transform: scale(1) rotate(0deg) translate(-50%, -50%);
   }
 }
 
 @-webkit-keyframes foldertext {
   0% {
-    color: #607d8b;
+    color: #fff;
   }
   50% {
-    color: #3366ff;
+    color: #651fff;
   }
   100% {
-    color: #607d8b;
+    color: #fff;
   }
 }
 
 @keyframes foldertext {
   0% {
-    color: #607d8b;
+    color: #fff;
   }
   50% {
-    color: #3366ff;
+    color: #651fff;
   }
   100% {
-    color: #607d8b;
+    color: #fff;
   }
 }
 
@@ -763,36 +763,56 @@ aside .form_container form button {
           animation: tit3 1s 1s ease-in-out forwards;
 }
 
-#wrap #skills.on .tit .skills_btn {
-  -webkit-animation: rotate_scale 1s 1s ease-in-out forwards;
-          animation: rotate_scale 1s 1s ease-in-out forwards;
-}
-
 #wrap #skills .tit {
   background: #fff;
   color: #ad0000;
 }
 
-#wrap #skills .skills_btn {
+#wrap #skills_1 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  background: #651fff;
+}
+
+#wrap #skills_1.on .skills_btn {
+  -webkit-animation: rotate_scale 0.5s ease-in-out forwards;
+          animation: rotate_scale 0.5s ease-in-out forwards;
+}
+
+#wrap #skills_1 .skills_btn {
   position: absolute;
+  top: 50%;
   left: 50%;
-  bottom: 20%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   text-align: center;
-  opacity: 0;
+  opacity: 1;
 }
 
-#wrap #skills .skills_btn img {
-  width: 8vw;
-  height: 8vw;
+#wrap #skills_1 .skills_btn img {
+  width: 40%;
+  height: 40%;
 }
 
-#wrap #skills .skills_btn p {
+#wrap #skills_1 .skills_btn p {
+  font-size: 2vw;
   margin-top: 1vw;
-  -webkit-animation: foldertext 1.5s infinite;
-          animation: foldertext 1.5s infinite;
+  -webkit-animation: foldertext 2s infinite;
+          animation: foldertext 2s infinite;
 }
 
-#wrap #skills .folder {
+#wrap #skills_1 .folder {
   position: absolute;
   top: 150%;
   left: 50%;
@@ -810,21 +830,21 @@ aside .form_container form button {
   z-index: 5;
 }
 
-#wrap #skills .folder.on {
+#wrap #skills_1 .folder.on {
   top: 50%;
 }
 
-#wrap #skills .folder.full {
+#wrap #skills_1 .folder.full {
   width: 100%;
   height: 100%;
   border-radius: 0;
 }
 
-#wrap #skills .folder.full .status_bar {
+#wrap #skills_1 .folder.full .status_bar {
   border-radius: 0;
 }
 
-#wrap #skills .folder .status_bar {
+#wrap #skills_1 .folder .status_bar {
   width: 100%;
   height: 6%;
   border-radius: 20px 20px 0 0;
@@ -837,7 +857,7 @@ aside .form_container form button {
           align-items: center;
 }
 
-#wrap #skills .folder .status_bar a {
+#wrap #skills_1 .folder .status_bar a {
   position: relative;
   display: block;
   width: 18px;
@@ -848,7 +868,7 @@ aside .form_container form button {
   border-radius: 50%;
 }
 
-#wrap #skills .folder .status_bar a:after {
+#wrap #skills_1 .folder .status_bar a:after {
   content: "";
   display: block;
   position: absolute;
@@ -860,39 +880,39 @@ aside .form_container form button {
   height: 50%;
 }
 
-#wrap #skills .folder .status_bar a:hover:nth-child(1):after {
+#wrap #skills_1 .folder .status_bar a:hover:nth-child(1):after {
   background: url(../images/status0.png) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .status_bar a:hover:nth-child(2):after {
+#wrap #skills_1 .folder .status_bar a:hover:nth-child(2):after {
   background: url(../images/status1.png) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .status_bar a:hover:nth-child(3):after {
+#wrap #skills_1 .folder .status_bar a:hover:nth-child(3):after {
   background: url(../images/status2.png) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .status_bar a:nth-child(1) {
+#wrap #skills_1 .folder .status_bar a:nth-child(1) {
   background: #fd4646;
   margin-left: 2vw;
 }
 
-#wrap #skills .folder .status_bar a:nth-child(2) {
+#wrap #skills_1 .folder .status_bar a:nth-child(2) {
   background: #feb024;
 }
 
-#wrap #skills .folder .status_bar a:nth-child(3) {
+#wrap #skills_1 .folder .status_bar a:nth-child(3) {
   background: #29c232;
 }
 
-#wrap #skills .folder.detail .depth2 {
+#wrap #skills_1 .folder.detail .depth2 {
   display: block;
 }
 
-#wrap #skills .folder.detail .depth1 {
+#wrap #skills_1 .folder.detail .depth1 {
   -ms-grid-columns: 30%;
       grid-template-columns: 30%;
   justify-items: flex-start;
@@ -904,24 +924,24 @@ aside .form_container form button {
   height: 88%;
 }
 
-#wrap #skills .folder.detail .depth1 > li {
+#wrap #skills_1 .folder.detail .depth1 > li {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
 }
 
-#wrap #skills .folder.detail .depth1 > li > div {
+#wrap #skills_1 .folder.detail .depth1 > li > div {
   width: 3vw;
   height: 3vw;
   margin-right: 1vw;
 }
 
-#wrap #skills .folder.detail .depth1 > li p {
+#wrap #skills_1 .folder.detail .depth1 > li p {
   font-size: 1.4vw;
 }
 
-#wrap #skills .folder .depth1 {
+#wrap #skills_1 .folder .depth1 {
   margin: 6vw auto;
   width: 80%;
   color: #000;
@@ -936,7 +956,7 @@ aside .form_container form button {
   row-gap: 5vw;
 }
 
-#wrap #skills .folder .depth1 > li {
+#wrap #skills_1 .folder .depth1 > li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -952,58 +972,65 @@ aside .form_container form button {
           flex-direction: column;
 }
 
-#wrap #skills .folder .depth1 > li[data-num] {
+#wrap #skills_1 .folder .depth1 > li[data-num] {
   cursor: pointer;
 }
 
-#wrap #skills .folder .depth1 > li:nth-child(1) > div:after {
+#wrap #skills_1 .folder .depth1 > li[data-num]:hover div {
+  -webkit-transform: rotate(10deg);
+          transform: rotate(10deg);
+}
+
+#wrap #skills_1 .folder .depth1 > li:nth-child(1) > div:after {
   background: url(../images/skills0.png) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth1 > li:nth-child(2) > div:after {
+#wrap #skills_1 .folder .depth1 > li:nth-child(2) > div:after {
   background: url(../images/skills1.png) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth1 > li:nth-child(3) > div:after {
+#wrap #skills_1 .folder .depth1 > li:nth-child(3) > div:after {
   background: url(../images/skills2.png) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth1 > li:nth-child(4) > div:after {
+#wrap #skills_1 .folder .depth1 > li:nth-child(4) > div:after {
   background: url(../images/skills3.png) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth1 > li:nth-child(5) > div:after {
+#wrap #skills_1 .folder .depth1 > li:nth-child(5) > div:after {
   background: url(../images/skills4.png) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth1 > li:nth-child(6) > div:after {
+#wrap #skills_1 .folder .depth1 > li:nth-child(6) > div:after {
   background: url(../images/skills5.png) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth1 > li:nth-child(7) > div:after {
+#wrap #skills_1 .folder .depth1 > li:nth-child(7) > div:after {
   background: url(../images/skills6.png) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth1 > li:nth-child(8) > div:after {
+#wrap #skills_1 .folder .depth1 > li:nth-child(8) > div:after {
   background: url(../images/skills7.png) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth1 > li > div {
+#wrap #skills_1 .folder .depth1 > li > div {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
   position: relative;
   width: 8vw;
   height: 8vw;
   margin-bottom: 1vw;
 }
 
-#wrap #skills .folder .depth1 > li > div:after {
+#wrap #skills_1 .folder .depth1 > li > div:after {
   content: "";
   display: block;
   position: absolute;
@@ -1015,16 +1042,16 @@ aside .form_container form button {
           transform: translate(-50%, -30%);
 }
 
-#wrap #skills .folder .depth1 > li > div img {
+#wrap #skills_1 .folder .depth1 > li > div img {
   width: 100%;
   height: 100%;
 }
 
-#wrap #skills .folder .depth1 > li p {
+#wrap #skills_1 .folder .depth1 > li p {
   font-size: 2vw;
 }
 
-#wrap #skills .folder .depth2 {
+#wrap #skills_1 .folder .depth2 {
   display: none;
   position: absolute;
   top: 12%;
@@ -1034,7 +1061,7 @@ aside .form_container form button {
   color: #222;
 }
 
-#wrap #skills .folder .depth2.full {
+#wrap #skills_1 .folder .depth2.full {
   width: 100%;
   height: 94%;
   position: absolute;
@@ -1042,11 +1069,11 @@ aside .form_container form button {
   left: 0;
 }
 
-#wrap #skills .folder .depth2.full ul {
+#wrap #skills_1 .folder .depth2.full ul {
   visibility: hidden;
 }
 
-#wrap #skills .folder .depth2.full .big_img {
+#wrap #skills_1 .folder .depth2.full .big_img {
   position: absolute;
   top: 0;
   left: 0;
@@ -1055,7 +1082,7 @@ aside .form_container form button {
   display: block;
 }
 
-#wrap #skills .folder .depth2.full .big_img span {
+#wrap #skills_1 .folder .depth2.full .big_img span {
   position: absolute;
   top: 45%;
   width: 4%;
@@ -1066,13 +1093,13 @@ aside .form_container form button {
           transform: translateY(-50%);
 }
 
-#wrap #skills .folder .depth2.full .big_img span:nth-child(1) {
+#wrap #skills_1 .folder .depth2.full .big_img span:nth-child(1) {
   left: 2%;
   background: url(../images/arrow.jpg) center center no-repeat;
   background-size: cover;
 }
 
-#wrap #skills .folder .depth2.full .big_img span:nth-child(2) {
+#wrap #skills_1 .folder .depth2.full .big_img span:nth-child(2) {
   right: 2%;
   background: url(../images/arrow.jpg) center center no-repeat;
   background-size: cover;
@@ -1080,7 +1107,7 @@ aside .form_container form button {
           transform: rotate(180deg);
 }
 
-#wrap #skills .folder .depth2.full .big_img span:nth-child(3) {
+#wrap #skills_1 .folder .depth2.full .big_img span:nth-child(3) {
   position: absolute;
   top: 3%;
   right: 2%;
@@ -1088,7 +1115,7 @@ aside .form_container form button {
   background-size: cover;
 }
 
-#wrap #skills .folder .depth2 .big_img {
+#wrap #skills_1 .folder .depth2 .big_img {
   display: none;
   position: absolute;
   top: 34%;
@@ -1105,7 +1132,7 @@ aside .form_container form button {
   transition: 0.2s ease-in-out;
 }
 
-#wrap #skills .folder .depth2 ul {
+#wrap #skills_1 .folder .depth2 ul {
   position: absolute;
   top: 0;
   left: 0;
@@ -1122,7 +1149,7 @@ aside .form_container form button {
   row-gap: 1vw;
 }
 
-#wrap #skills .folder .depth2 ul a {
+#wrap #skills_1 .folder .depth2 ul a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1138,140 +1165,145 @@ aside .form_container form button {
           flex-direction: column;
 }
 
-#wrap #skills .folder .depth2 ul.on {
+#wrap #skills_1 .folder .depth2 ul.on {
   display: -ms-grid;
   display: grid;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(1) li:nth-child(1) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(1) li:nth-child(1) div:after {
   background: url(../images/css0.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(1) li:nth-child(2) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(1) li:nth-child(2) div:after {
   background: url(../images/css1.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(1) li:nth-child(3) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(1) li:nth-child(3) div:after {
   background: url(../images/css2.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(1) li:nth-child(4) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(1) li:nth-child(4) div:after {
   background: url(../images/css3.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(1) li:nth-child(5) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(1) li:nth-child(5) div:after {
   background: url(../images/css4.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(2) li:nth-child(1) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(2) li:nth-child(1) div:after {
   background: url(../images/js0.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(2) li:nth-child(2) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(2) li:nth-child(2) div:after {
   background: url(../images/js1.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(2) li:nth-child(3) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(2) li:nth-child(3) div:after {
   background: url(../images/js2.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(2) li:nth-child(4) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(2) li:nth-child(4) div:after {
   background: url(../images/js3.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(3) li:nth-child(1) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(3) li:nth-child(1) div:after {
   background: url(../images/jquery0.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(3) li:nth-child(2) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(3) li:nth-child(2) div:after {
   background: url(../images/jquery1.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(3) li:nth-child(3) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(3) li:nth-child(3) div:after {
   background: url(../images/jquery2.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(3) li:nth-child(4) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(3) li:nth-child(4) div:after {
   background: url(../images/jquery3.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(4) {
+#wrap #skills_1 .folder .depth2 ul:nth-child(4) {
   cursor: pointer;
   -ms-grid-rows: (18%)[2];
       grid-template-rows: repeat(2, 18%);
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(4) li:nth-child(1) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(4) li:nth-child(1) div:after {
   background: url(../images/ai0.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(4) li:nth-child(2) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(4) li:nth-child(2) div:after {
   background: url(../images/ai1.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(4) li:nth-child(3) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(4) li:nth-child(3) div:after {
   background: url(../images/ai2.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(4) li:nth-child(4) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(4) li:nth-child(4) div:after {
   background: url(../images/ai3.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(4) li:nth-child(5) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(4) li:nth-child(5) div:after {
   background: url(../images/ai4.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(4) li:nth-child(6) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(4) li:nth-child(6) div:after {
   background: url(../images/ai5.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(4) li:nth-child(7) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(4) li:nth-child(7) div:after {
   background: url(../images/ai6.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(4) li:nth-child(8) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(4) li:nth-child(8) div:after {
   background: url(../images/ai7.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(4) li:nth-child(9) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(4) li:nth-child(9) div:after {
   background: url(../images/ai8.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul:nth-child(4) li:nth-child(10) div:after {
+#wrap #skills_1 .folder .depth2 ul:nth-child(4) li:nth-child(10) div:after {
   background: url(../images/ai9.jpg) center center no-repeat;
   background-size: contain;
 }
 
-#wrap #skills .folder .depth2 ul div {
+#wrap #skills_1 .folder .depth2 ul li:hover div {
+  -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#wrap #skills_1 .folder .depth2 ul li div {
   position: relative;
   width: 60%;
   height: 60%;
   margin-bottom: 1vw;
 }
 
-#wrap #skills .folder .depth2 ul div:after {
+#wrap #skills_1 .folder .depth2 ul li div:after {
   content: "";
   display: block;
   position: absolute;
@@ -1283,12 +1315,12 @@ aside .form_container form button {
           transform: translate(-50%, -30%);
 }
 
-#wrap #skills .folder .depth2 ul div img {
+#wrap #skills_1 .folder .depth2 ul li div img {
   width: 100%;
   height: 100%;
 }
 
-#wrap #skills .folder .depth2 ul p {
+#wrap #skills_1 .folder .depth2 ul li p {
   font-size: 1.4vw;
 }
 
