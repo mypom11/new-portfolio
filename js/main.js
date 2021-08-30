@@ -15,7 +15,7 @@ $(window).on("resize", function(){
 
 
 $(window).on('scroll',function(){
-  sct = $(this).scrollTop();
+  sct = Math.round($(this).scrollTop());
   winh = Math.round($(this).height());
   if(sct >= winh*5 && sct < winh*6){
     slide = true;
