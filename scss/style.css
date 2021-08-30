@@ -797,7 +797,7 @@ aside .form_container form button {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   text-align: center;
-  opacity: 1;
+  opacity: 0;
 }
 
 #wrap #skills_1 .skills_btn img {
