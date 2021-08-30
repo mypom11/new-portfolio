@@ -1,13 +1,18 @@
 //scroll effect
 let winh;
 let sct;
+let slide = false;
 let wheel = false;
 let worksPage = 0;
 
 $(window).on('scroll',function(e){
   sct = $(this).scrollTop();
   winh = $(this).height();
-  
+  if(sct >= winh*5 && sct < winh*6){
+    slide = true;
+  }else{
+    slide = false
+  }
   for(let i = 0; i < $('section').length; i++){
     if(sct >= i*winh && sct < (i+1)*winh){
         $('section').removeClass('on');
@@ -22,10 +27,10 @@ $('section').on('mousewheel',function(e){
     setTimeout(()=>{
       wheel = false;
     },1000)
-    if(sct != 5*winh){
+    if(!slide){
       if(e.originalEvent.deltaY > 0){
         let nextTop = $(this).next().offset().top;
-        $('body,html').stop().animate({scrollTop:nextTop},600)   
+        $('body,html').stop().animate({scrollTop:nextTop},600)  
       }else{
         let prevTop = $(this).prev().offset().top;
         $('body,html').stop().animate({scrollTop:prevTop},600) 
