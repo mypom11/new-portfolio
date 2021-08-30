@@ -380,52 +380,55 @@ aside{
       @include size(100vw, 100vh);
     }
     .works{
-      @include flex;
+      @include flex(space-between,center);
       padding: 0 vw(170);
       .leftside{
         position: relative;
-        @include size(70%);
+        @include size(55%, 50%);
         p{
-          margin-top: 9vw;
-          font-size: 16vw;
+          @include position(-40%, -7%);
+          font-size: 20vw;
           color: #ccc;
         }
         .work_img{
-          @include size(40vw, 34vw);
-          @include position(20vw, 16%);
+          position: relative;
+          @include size();
+          
           img{
-            position: relative;
+            padding-left: 10%;
             @include size();
+            position: relative;
             z-index: 2;
           }
           video{
-            @include position(5%, 8%);
-            @include size(86%, 62%);
+            @include position(5%, 17%);
+            @include size(78%, 58%);
             object-fit: fill;
           }
         }
       }
       .rightside{
-        @include size(30%);
+        @include size(40%, 50%);
         h4{
           font-family: 'TmoneyRoundWindExtraBold';
           color:#00ff33;
-          margin-top: 18vw;
           font-size: 7vw;
-          margin-bottom: 1vw;
+          margin-bottom: 0.1em;
         }
         p{
-          margin-bottom: 2vw;
-          &:nth-child(4){
-            margin-bottom: 5vw;
-          }
+          font-size: 1.2vw;
+          margin-bottom: 1em;
         }
         span{
+          display: block;
+          float: left;
+          border-radius: 10px;
           font-family: 'TmoneyRoundWindExtraBold';
           color: #222;
           padding: 1vw 0.8vw;
           background: #00ff33;
-          margin-right: 1vw;
+          margin-right: 2em;
+          margin-top: 1em;
         }
       }
     }

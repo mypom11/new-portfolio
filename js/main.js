@@ -1,18 +1,19 @@
 //scroll effect
-let winh;
+let winh = $(window).height();
 let sct;
-let slide = false;
 let wheel = false;
 let worksPage = 0;
 
-$(window).on('scroll',function(e){
+$('section').height(winh)
+//resize event
+$(window).on("resize", function(){
+  winh = $(window).height();
+  $('section').height(winh);
+});
+
+$(window).on('scroll',function(){
   sct = $(this).scrollTop();
   winh = $(this).height();
-  if(sct >= winh*5 && sct < winh*6){
-    slide = true;
-  }else{
-    slide = false
-  }
   for(let i = 0; i < $('section').length; i++){
     if(sct >= i*winh && sct < (i+1)*winh){
         $('section').removeClass('on');
@@ -20,27 +21,29 @@ $(window).on('scroll',function(e){
     }
   }
 })
+
+
 $('section').on('mousewheel',function(e){
   e.preventDefault();
   if(!wheel){
-    wheel=true;
+    wheel = true;
     setTimeout(()=>{
       wheel = false;
     },1000)
-    if(!slide){
+    if(sct != winh*5){
       if(e.originalEvent.deltaY > 0){
         let nextTop = $(this).next().offset().top;
-        $('body,html').stop().animate({scrollTop:nextTop},600)  
+        pageNext(nextTop)
       }else{
         let prevTop = $(this).prev().offset().top;
-        $('body,html').stop().animate({scrollTop:prevTop},600) 
+        pagePrev(prevTop)
       }
     }else{
       if(e.originalEvent.deltaY > 0){
         worksPage++
-        if(worksPage > $('.works').length){
+        if(worksPage > $('.works').length){   
           let nextTop = $(this).next().offset().top;
-          $('body,html').stop().animate({scrollTop:nextTop},600)
+          pageNext(nextTop)
           worksPage =  $('.works').length;
         }else{
           $('#works').css('left',`${worksPage*-100}vw`);
@@ -49,7 +52,7 @@ $('section').on('mousewheel',function(e){
         worksPage--
         if(worksPage < 0){
           let prevTop = $(this).prev().offset().top;
-          $('body,html').stop().animate({scrollTop:prevTop},600)
+          pagePrev(prevTop)
           worksPage = 0
         }else{
           $('#works').css('left',`${worksPage*-100}vw`);
@@ -58,6 +61,13 @@ $('section').on('mousewheel',function(e){
     }
   } 
 })
+
+function pagePrev(prevTop){
+  $('body,html').stop().animate({scrollTop:prevTop},600) 
+}
+function pageNext(nextTop){
+  $('body,html').stop().animate({scrollTop:nextTop},600)
+}
 
 //nav event
 $('.nav_btn').on('click',function(){
@@ -75,7 +85,6 @@ $('nav li').on('click',function(e){
 //visual typing
 let textNum = 0;
 const text = 'Jeongki\'s Portfolio'; 
-
 typing()
 function typing() {
   if (textNum < text.length) {
