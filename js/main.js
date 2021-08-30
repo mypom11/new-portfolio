@@ -5,6 +5,7 @@ let wheel = false;
 let worksPage = 0;
 let slide = false;
 
+
 $('section').height(winh)
 //resize 
 $(window).on("resize", function(){
