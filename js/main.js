@@ -3,7 +3,7 @@ let winh = $(window).height();
 let sct;
 let wheel = false;
 let worksPage = 0;
-
+let slide = false;
 $('section').height(winh)
 //resize event
 $(window).on("resize", function(){
@@ -11,9 +11,16 @@ $(window).on("resize", function(){
   $('section').height(winh);
 });
 
+
+
 $(window).on('scroll',function(){
   sct = $(this).scrollTop();
   winh = $(this).height();
+  if(sct >= winh*5 && sct < winh*6){
+    slide = true;
+  }else{
+    slide = false
+  }
   for(let i = 0; i < $('section').length; i++){
     if(sct >= i*winh && sct < (i+1)*winh){
         $('section').removeClass('on');
@@ -30,7 +37,7 @@ $('section').on('mousewheel',function(e){
     setTimeout(()=>{
       wheel = false;
     },1000)
-    if(sct != winh*5){
+    if(!slide){
       if(e.originalEvent.deltaY > 0){
         let nextTop = $(this).next().offset().top;
         pageNext(nextTop)
