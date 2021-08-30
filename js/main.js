@@ -1,10 +1,17 @@
 //scroll effect
-let winh
+let winh = $(window).height();
 let sct;
 let wheel = false;
 let worksPage = 0;
 let slide = false;
 
+
+//resize
+$('section').height(winh);
+$(window).on("resize", function(){
+  winh = $(window).height();
+  $('section').height(winh);
+});
 
 $(window).on('scroll',function(){
   sct = $(this).scrollTop();
