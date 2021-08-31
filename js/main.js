@@ -35,7 +35,7 @@ $('section').on('mousewheel',function(e){
     setTimeout(()=>{
       wheel = false;
     },1000)
-    if(!slide){
+    if(currentSection != 5){
       if(e.originalEvent.deltaY > 0){
         currentSection++
         if(currentSection > $('section').length ){
