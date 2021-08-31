@@ -1,6 +1,7 @@
 //scroll effect
 let winh = $(window).height();
 let sct;
+const sections = document.querySelectorAll('section')
 let wheel = false;
 let worksPage = 0;
 let slide = false;
@@ -22,13 +23,10 @@ $(window).on('scroll',function(){
     slide = false
   }
   for(let i = 0; i < $('section').length; i++){
-    if(sct >= i*winh && sct < (i+1)*winh){
-        $('section').removeClass('on');
-        $('section').eq(i).addClass('on');
-    }
+      $('section').removeClass('on');
+      $('section').eq(currentSection).addClass('on');
   }
 })
-const sections = document.querySelectorAll('section')
 
 $('section').on('mousewheel',function(e){
   e.preventDefault();
