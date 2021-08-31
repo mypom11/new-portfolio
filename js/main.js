@@ -85,11 +85,15 @@ $('.nav_btn').on('click',function(){
 })
 $('nav li').on('click',function(e){
   e.preventDefault();
+  currentSection == e.target.dataset.num;
   worksPage = 0;
   $('#works').css('left',`${worksPage*-100}vw`);
   $('section').removeClass('on');
   $('section').eq(e.target.dataset.num).addClass('on');
   $('body,html').animate({scrollTop:$('section').eq(e.target.dataset.num).offset().top},600)
+  if(e.target.dataset.num == 6){
+    worksPage = 3;
+  }
 })
 
 //visual typing
