@@ -4,7 +4,7 @@ let sct;
 let wheel = false;
 let worksPage = 0;
 let slide = false;
-
+let currentSection = 0;
 
 //resize
 $('section').height(winh);
@@ -28,7 +28,7 @@ $(window).on('scroll',function(){
     }
   }
 })
-
+const sections = document.querySelectorAll('section')
 
 $('section').on('mousewheel',function(e){
   e.preventDefault();
@@ -39,18 +39,24 @@ $('section').on('mousewheel',function(e){
     },1000)
     if(!slide){
       if(e.originalEvent.deltaY > 0){
-        let nextTop = $(this).next().offset().top;
-        pageNext(nextTop)
+        currentSection++
+        if(currentSection > $('section').length ){
+          currentSection = $('setions').length
+        }
+        pageMover()
       }else{
-        let prevTop = $(this).prev().offset().top;
-        pagePrev(prevTop)
+        currentSection--
+        if(currentSection < 0 ){
+          currentSection = 0
+        }
+        pageMover()
       }
     }else{
       if(e.originalEvent.deltaY > 0){
         worksPage++
         if(worksPage > $('.works').length){   
-          let nextTop = $(this).next().offset().top;
-          pageNext(nextTop)
+          currentSection++
+          pageMover()
           worksPage =  $('.works').length;
         }else{
           $('#works').css('left',`${worksPage*-100}vw`);
@@ -58,8 +64,8 @@ $('section').on('mousewheel',function(e){
       }else{
         worksPage--
         if(worksPage < 0){
-          let prevTop = $(this).prev().offset().top;
-          pagePrev(prevTop)
+          currentSection--
+          pageMover()
           worksPage = 0
         }else{
           $('#works').css('left',`${worksPage*-100}vw`);
@@ -69,11 +75,10 @@ $('section').on('mousewheel',function(e){
   } 
 })
 
-function pagePrev(prevTop){
-  $('body,html').stop().animate({scrollTop:prevTop},600) 
-}
-function pageNext(nextTop){
-  $('body,html').stop().animate({scrollTop:nextTop},600)
+function pageMover(){
+  let index = sections[currentSection].offsetTop;
+  $('body,html').stop().animate({scrollTop:index},600) 
+  console.log(index)
 }
 
 //nav event
