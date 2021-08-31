@@ -41,20 +41,20 @@ $('section').on('mousewheel',function(e){
         if(currentSection > $('section').length ){
           currentSection = $('setions').length
         }
-        pageMover()
+        pageMover(currentSection)
       }else{
         currentSection--
         if(currentSection < 0 ){
           currentSection = 0
         }
-        pageMover()
+        pageMover(currentSection)
       }
     }else{
       if(e.originalEvent.deltaY > 0){
         worksPage++
         if(worksPage > $('.works').length){   
           currentSection++
-          pageMover()
+          pageMover(currentSection)
           worksPage =  $('.works').length;
         }else{
           $('#works').css('left',`${worksPage*-100}vw`);
@@ -63,7 +63,7 @@ $('section').on('mousewheel',function(e){
         worksPage--
         if(worksPage < 0){
           currentSection--
-          pageMover()
+          pageMover(currentSection)
           worksPage = 0
         }else{
           $('#works').css('left',`${worksPage*-100}vw`);
@@ -73,10 +73,9 @@ $('section').on('mousewheel',function(e){
   } 
 })
 
-function pageMover(){
+function pageMover(currentSection){
   let index = sections[currentSection].offsetTop;
   $('body,html').stop().animate({scrollTop:index},600) 
-  console.log(index)
 }
 
 //nav event
@@ -85,14 +84,16 @@ $('.nav_btn').on('click',function(){
 })
 $('nav li').on('click',function(e){
   e.preventDefault();
-  currentSection == e.target.dataset.num;
+  currentSection = e.target.dataset.num;
   worksPage = 0;
   $('#works').css('left',`${worksPage*-100}vw`);
   $('section').removeClass('on');
-  $('section').eq(e.target.dataset.num).addClass('on');
-  $('body,html').animate({scrollTop:$('section').eq(e.target.dataset.num).offset().top},600)
-  if(e.target.dataset.num == 6){
+  $('section').eq(currentSection).addClass('on');
+  pageMover(currentSection)
+  console.log(currentSection)
+  if(currentSection == 6){
     worksPage = 3;
+    $('#works').css('left',`${worksPage*-100}vw`);
   }
 })
 
